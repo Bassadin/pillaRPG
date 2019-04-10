@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     public float movementSpeed = 3.0f;
-    Vector2 movement = new Vector2();
+    Vector2 movementVector = new Vector2();
     Animator animator;
     string animationState = "AnimationState";
     Rigidbody2D rb2D;
@@ -36,27 +36,27 @@ public class MovementController : MonoBehaviour
 
     private void moveCharacter()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement.Normalize();
-        rb2D.velocity = movement * movementSpeed;
+        movementVector.x = Input.GetAxisRaw("Horizontal");
+        movementVector.y = Input.GetAxisRaw("Vertical");
+        movementVector.Normalize();
+        rb2D.velocity = movementVector * movementSpeed;
     }
 
     private void updateState()
     {
-        if (movement.x > 0)
+        if (movementVector.x > 0)
         {
             animator.SetInteger(animationState, (int)charStates.walkEast);
         }
-        else if (movement.x < 0)
+        else if (movementVector.x < 0)
         {
             animator.SetInteger(animationState, (int)charStates.walkWest);
         }
-        else if (movement.y > 0)
+        else if (movementVector.y > 0)
         {
             animator.SetInteger(animationState, (int)charStates.walkNorth);
         }
-        else if (movement.y < 0)
+        else if (movementVector.y < 0)
         {
             animator.SetInteger(animationState, (int)charStates.walkSouth);
         }
