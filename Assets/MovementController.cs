@@ -4,30 +4,65 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    //1
     public float movementSpeed = 3.0f;
-    // 2
     Vector2 movement = new Vector2();
-    // 3
+    Animator animator;
+    string animationState = "AnimationState";
     Rigidbody2D rb2D;
+
+    enum charStates
+    {
+        walkEast = 1,
+        walkSouth = 2,
+        walkWest = 3,
+        walkNorth = 4,
+
+        idleSouth = 5
+    }
+
     private void Start()
     {
-        // 4
+        animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
-        // Keep this empty for now
+        updateState();
     }
-    // 5
     void FixedUpdate()
     {
-        // 6
+        moveCharacter();
+    }
+
+    private void moveCharacter()
+    {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        // 7
         movement.Normalize();
-        // 8
         rb2D.velocity = movement * movementSpeed;
+    }
+
+    private void updateState()
+    {
+        if (movement.x > 0)
+        {
+            animator.SetInteger(animationState, (int)charStates.walkEast);
+        }
+        else if (movement.x < 0)
+        {
+            animator.SetInteger(animationState, (int)charStates.walkWest);
+        }
+        else if (movement.y > 0)
+        {
+            animator.SetInteger(animationState, (int)charStates.walkNorth);
+        }
+        else if (movement.y < 0)
+        {
+            animator.SetInteger(animationState, (int)charStates.walkSouth);
+        }
+        else
+        {
+            animator.SetInteger(animationState, (int)charStates.idleSouth);
+        }
     }
 }
