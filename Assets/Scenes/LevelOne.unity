@@ -162,8 +162,8 @@ MonoBehaviour:
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
-  m_ScreenX: 0.398
-  m_ScreenY: 0.476
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.03
   m_DeadZoneHeight: 0.066
@@ -741,7 +741,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6511409, y: -0.25165713, z: -10}
+  m_LocalPosition: {x: 2.25, y: -1.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -900,12 +900,12 @@ PrefabInstance:
     - target: {fileID: 3501408278644647806, guid: 9bd78b75155f1224f8ab880d9dca7b14,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.291
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 3501408278644647806, guid: 9bd78b75155f1224f8ab880d9dca7b14,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.017
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 3501408278644647806, guid: 9bd78b75155f1224f8ab880d9dca7b14,
         type: 3}
@@ -1088,7 +1088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148743308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6509998, y: -0.19699992, z: -10}
+  m_LocalPosition: {x: 2.25, y: -1.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 159941593}
@@ -1124,6 +1124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70022759e5152d34ba40f21c54f1a3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixelsPerUnit: 32
 --- !u!1 &1683935346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,8 +2753,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 3, y: -1, z: 0}
     second:
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -2914,8 +2915,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 3, y: 0, z: 0}
     second:
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -3076,8 +3077,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 3, y: 1, z: 0}
     second:
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -3481,7 +3482,7 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 8
+  - m_RefCount: 11
     m_Data: {fileID: 11400000, guid: c71006b3933519e4491e335a251abab0, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 806368b7e37bcd3408ee5c7b64e9653b, type: 2}
@@ -3497,7 +3498,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 97657e2ffa85fc54aad07b9dd7f3db29, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 70835c2961a88444a9e2d25d3ae2b45c, type: 2}
-  - m_RefCount: 13
+  - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 027b9d91aa148684c9d3a0ec0046518a, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 1cb1d8f0c9ecbf0459d5c765da50534c, type: 2}
@@ -3534,7 +3535,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: ebc4f85990cd8ec4f829cf51e311ca24, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 8
+  - m_RefCount: 11
     m_Data: {fileID: 21300002, guid: 13db053b64e847149924aa3066eebd2f, type: 3}
   - m_RefCount: 17
     m_Data: {fileID: 21300088, guid: 13db053b64e847149924aa3066eebd2f, type: 3}
@@ -3550,7 +3551,7 @@ Tilemap:
     m_Data: {fileID: 21300072, guid: 13db053b64e847149924aa3066eebd2f, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 21300010, guid: 13db053b64e847149924aa3066eebd2f, type: 3}
-  - m_RefCount: 13
+  - m_RefCount: 10
     m_Data: {fileID: 21300060, guid: 13db053b64e847149924aa3066eebd2f, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300006, guid: 13db053b64e847149924aa3066eebd2f, type: 3}
@@ -3656,7 +3657,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -5.557517, y: 3.4969504}
-      - {x: -5.5017796, y: -9.564929}
-      - {x: 11.504076, y: -9.571429}
-      - {x: 11.452892, y: 3.5406528}
+    - - {x: -5.690342, y: 3.7625992}
+      - {x: -5.6877337, y: -9.671188}
+      - {x: 11.504076, y: -9.67769}
+      - {x: 11.61228, y: 3.7266073}

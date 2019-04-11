@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using Cinemachine;
-public class RoundCameraPos : CinemachineExtension
+public class RoundCameraPosition : CinemachineExtension
 {
     public float pixelsPerUnit = 32;
     protected override void PostPipelineStageCallback(
