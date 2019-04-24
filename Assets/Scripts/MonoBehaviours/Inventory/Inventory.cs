@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour
             if (items[i] != null && items[i].itemType == itemToAdd.itemType && itemToAdd.stackable == true)
             {
                 //Adding to existing slot
-                items[i].quantity++;
+                items[i].quantity = items[i].quantity + 1;
                 Slot slotScript = slots[i].gameObject.GetComponent<Slot>();
                 Text quantityText = slotScript.quantityText;
                 quantityText.enabled = true;
@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
 
                 return true;
             }
-            else if (items[i] == null)
+            if (items[i] == null)
             {
                 //Adding empty slot
                 //Copy item & add to inventory. Copying so that the original Scriptable Object isn't changed.
