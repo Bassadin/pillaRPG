@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class RPGGameManager : MonoBehaviour
 {
+    //Global Singleton accessor
     public static RPGGameManager sharedInstance = null;
+
+    //Instance vars
+    public SpawnPoint playerSpawnPoint;
 
     private void Awake()
     {
@@ -25,6 +29,14 @@ public class RPGGameManager : MonoBehaviour
 
     public void setupScene()
     {
-        //TODO
+        spawnPlayer();
+    }
+
+    public void spawnPlayer()
+    {
+        if (playerSpawnPoint != null)
+        {
+            GameObject player = playerSpawnPoint.spawnObject();
+        }
     }
 }
