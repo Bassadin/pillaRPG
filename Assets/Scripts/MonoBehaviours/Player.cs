@@ -2,16 +2,21 @@
 public class Player : Character
 {
     public HealthBar healthBarPrefab;
-    HealthBar healthBar;
+    public Inventory inventoryPrefab;
 
-    private void Start()
+    HealthBar healthBar;
+    Inventory inventory;
+
+    public void Start()
     {
+        inventory = Instantiate(inventoryPrefab);
+
         hitPoints.value = startingHitPoints;
         healthBar = Instantiate(healthBarPrefab);
         healthBar.character = this;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Pickups"))
         {
