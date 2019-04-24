@@ -29,7 +29,7 @@ public class Player : Character
                 switch (hitObject.itemType)
                 {
                     case Item.ItemType.COIN:
-                        shouldDisappear = true;
+                        shouldDisappear = inventory.addItem(hitObject);
                         break;
                     case Item.ItemType.HEALTH:
                         shouldDisappear = adjustHitPoints(hitObject.quantity);
