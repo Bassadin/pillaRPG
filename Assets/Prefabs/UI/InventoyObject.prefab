@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 1160652207773982478}
   - component: {fileID: 4907651228602416400}
   - component: {fileID: 2968898428573516579}
+  - component: {fileID: 7371218111671282294}
   m_Layer: 5
   m_Name: InventoyObject
   m_TagString: Untagged
@@ -160,3 +161,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7371218111671282294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267706067231776216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb881c2faf6460498f53deeb233a1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotPrefab: {fileID: 2514021291579540490, guid: b83451a77b376d746bf6a4c87172440f,
+    type: 3}
