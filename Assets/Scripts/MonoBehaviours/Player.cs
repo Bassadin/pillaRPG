@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 public class Player : Character
 {
     public HealthBar healthBarPrefab;
     public Inventory inventoryPrefab;
+    public HitPoints hitPoints;
 
     HealthBar healthBar;
     Inventory inventory;
@@ -55,5 +57,36 @@ public class Player : Character
             return true;
         }
         return false;
+    }
+
+    public override void resetCharacter()
+    {
+        base.killCharacter();
+
+        Destroy(healthBar.gameObject);
+        Destroy(inventory.gameObject);
+    }
+
+    public override IEnumerator damageCharacter(int damage, float interval)
+    {
+        while(true)
+        {
+            hitPoints.value -= damage;
+
+            if (hitPoints.value <= float.Epsilon)
+            {
+                killCharacter();
+                break;
+            }
+
+            if (interval > float.Epsilon)
+            {
+                yield return new WaitForSeconds(interval);
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 }
