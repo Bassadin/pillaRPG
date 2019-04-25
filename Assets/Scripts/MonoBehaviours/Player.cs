@@ -11,11 +11,12 @@ public class Player : Character
 
     public void Start()
     {
-        inventory = Instantiate(inventoryPrefab);
+        
+    }
 
-        hitPoints.value = startingHitPoints;
-        healthBar = Instantiate(healthBarPrefab);
-        healthBar.character = this;
+    private void OnEnable()
+    {
+        ResetCharacter();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +61,16 @@ public class Player : Character
     }
 
     public override void resetCharacter()
+    {
+        inventory = Instantiate(inventoryPrefab);
+        hitPoints.value = startingHitPoints;
+        healthBar = Instantiate(healthBarPrefab);
+        healthBar.character = this;
+
+        hitPoints.value = startingHitPoints;
+    }
+
+    public override void killCharacter()
     {
         base.killCharacter();
 
