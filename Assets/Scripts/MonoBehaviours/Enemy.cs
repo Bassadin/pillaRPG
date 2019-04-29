@@ -12,6 +12,23 @@ public class Enemy : Character
         if (collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
+
+            if (damageCoroutine == null)
+            {
+                damageCoroutine = StartCoroutine(player.damageCharacter(damageStrength, 1.0f));
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (damageCoroutine != null)
+            {
+                StopCoroutine(damageCoroutine);
+                damageCoroutine = null;
+            }
         }
     }
     public override IEnumerator damageCharacter(int damage, float interval)

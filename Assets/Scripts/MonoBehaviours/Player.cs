@@ -16,7 +16,7 @@ public class Player : Character
 
     private void OnEnable()
     {
-        ResetCharacter();
+        resetCharacter();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
