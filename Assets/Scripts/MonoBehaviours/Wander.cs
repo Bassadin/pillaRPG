@@ -13,7 +13,7 @@ public class Wander : MonoBehaviour
     public float directionChangeInterval;
     public bool followPlayer;
 
-    //Internal
+    //Internal vars
     float currentSpeed;
     Coroutine MoveCoroutine;
     Rigidbody2D rigidbody2D;
