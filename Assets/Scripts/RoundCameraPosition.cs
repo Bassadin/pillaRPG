@@ -11,11 +11,11 @@ public class RoundCameraPosition : CinemachineExtension
         if (stage == CinemachineCore.Stage.Body)
         {
             Vector3 pos = state.FinalPosition;
-            Vector3 pos2 = new Vector3(round(pos.x), round(pos.y), pos.z);
+            Vector3 pos2 = new Vector3(Round(pos.x), Round(pos.y), pos.z);
             state.PositionCorrection += pos2 - pos;
         }
     }
-    float round(float x)
+    float Round(float x)
     {
         return Mathf.Round(x * pixelsPerUnit) / pixelsPerUnit;
     }

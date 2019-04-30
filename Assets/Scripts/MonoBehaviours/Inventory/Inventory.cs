@@ -11,10 +11,10 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
-        createSlots();
+        CreateSlots();
     }
 
-    public void createSlots()
+    public void CreateSlots()
     {
         if (slotPrefab != null)
         {
@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool addItem(Item itemToAdd)
+    public bool AddItem(Item itemToAdd)
     {
         for (int i = 0; i < items.Length; i++)
         {

@@ -16,7 +16,7 @@ public class Player : Character
 
     private void OnEnable()
     {
-        resetCharacter();
+        ResetCharacter();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -32,10 +32,10 @@ public class Player : Character
                 switch (hitObject.itemType)
                 {
                     case Item.ItemType.COIN:
-                        shouldDisappear = inventory.addItem(hitObject);
+                        shouldDisappear = inventory.AddItem(hitObject);
                         break;
                     case Item.ItemType.HEALTH:
-                        shouldDisappear = adjustHitPoints(hitObject.quantity);
+                        shouldDisappear = AdjustHitPoints(hitObject.quantity);
                         break;
                     default:
                         break;
@@ -49,7 +49,7 @@ public class Player : Character
         }
     }
 
-    public bool adjustHitPoints(int amount)
+    public bool AdjustHitPoints(int amount)
     {
         if (hitPoints.value < maxHitPoints)
         {
@@ -60,7 +60,7 @@ public class Player : Character
         return false;
     }
 
-    public override void resetCharacter()
+    public override void ResetCharacter()
     {
         inventory = Instantiate(inventoryPrefab);
         hitPoints.value = startingHitPoints;
@@ -70,15 +70,15 @@ public class Player : Character
         hitPoints.value = startingHitPoints;
     }
 
-    public override void killCharacter()
+    public override void KillCharacter()
     {
-        base.killCharacter();
+        base.KillCharacter();
 
         Destroy(healthBar.gameObject);
         Destroy(inventory.gameObject);
     }
 
-    public override IEnumerator damageCharacter(int damage, float interval)
+    public override IEnumerator DamageCharacter(int damage, float interval)
     {
         while(true)
         {
@@ -86,7 +86,7 @@ public class Player : Character
 
             if (hitPoints.value <= float.Epsilon)
             {
-                killCharacter();
+                KillCharacter();
                 break;
             }
 

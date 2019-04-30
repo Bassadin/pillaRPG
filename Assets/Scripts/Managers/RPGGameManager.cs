@@ -25,19 +25,19 @@ public class RPGGameManager : MonoBehaviour
 
     private void Start()
     {
-        setupScene();
+        SetupScene();
     }
 
-    public void setupScene()
+    public void SetupScene()
     {
-        spawnPlayer();
+        SpawnPlayer();
     }
 
-    public void spawnPlayer()
+    public void SpawnPlayer()
     {
         if (playerSpawnPoint != null)
         {
-            GameObject player = playerSpawnPoint.spawnObject();
+            GameObject player = playerSpawnPoint.SpawnObject();
             cameraManager.virtualCamera.Follow = player.transform;
         }
     }

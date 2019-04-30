@@ -27,14 +27,14 @@ public class MovementController : MonoBehaviour
     }
     private void Update()
     {
-        updateState();
+        UpdateState();
     }
     void FixedUpdate()
     {
-        moveCharacter();
+        MoveCharacter();
     }
 
-    private void moveCharacter()
+    private void MoveCharacter()
     {
         movementVector.x = Input.GetAxisRaw("Horizontal");
         movementVector.y = Input.GetAxisRaw("Vertical");
@@ -42,7 +42,7 @@ public class MovementController : MonoBehaviour
         rb2D.velocity = movementVector * movementSpeed;
     }
 
-    private void updateState()
+    private void UpdateState()
     {
         if (movementVector.x > 0)
         {

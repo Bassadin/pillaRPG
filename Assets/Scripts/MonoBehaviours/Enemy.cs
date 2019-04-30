@@ -15,7 +15,7 @@ public class Enemy : Character
 
             if (damageCoroutine == null)
             {
-                damageCoroutine = StartCoroutine(player.damageCharacter(damageStrength, 1.0f));
+                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 1.0f));
             }
         }
     }
@@ -31,7 +31,7 @@ public class Enemy : Character
             }
         }
     }
-    public override IEnumerator damageCharacter(int damage, float interval)
+    public override IEnumerator DamageCharacter(int damage, float interval)
     {
         while(true)
         {
@@ -39,7 +39,7 @@ public class Enemy : Character
 
             if (hitPoints <= float.Epsilon)
             {
-                killCharacter();
+                KillCharacter();
                 break;
             }
 
@@ -54,13 +54,13 @@ public class Enemy : Character
         }
     }
 
-    public override void resetCharacter()
+    public override void ResetCharacter()
     {
         hitPoints = startingHitPoints;
     }
 
     private void OnEnable()
     {
-        resetCharacter();
+        ResetCharacter();
     }
 }

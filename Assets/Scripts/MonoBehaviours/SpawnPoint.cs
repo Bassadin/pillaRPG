@@ -13,7 +13,7 @@ public class SpawnPoint : MonoBehaviour
         }
     }
 
-    public GameObject spawnObject()
+    public GameObject SpawnObject()
     {
         if (prefabToSpawn != null)
         {
