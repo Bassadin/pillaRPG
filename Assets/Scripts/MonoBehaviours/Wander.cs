@@ -37,10 +37,10 @@ public class Wander : MonoBehaviour
 
             if (MoveCoroutine != null)
             {
-                StartCoroutine(MoveCoroutine);
+                StopCoroutine(MoveCoroutine);
             }
 
-            MoveCoroutine = StartCoroutine(MoveCoroutine(rigidbody2D, currentSpeed));
+            MoveCoroutine = StartCoroutine(Move(rigidbody2D, currentSpeed));
 
             yield return new WaitForSeconds(directionChangeInterval);
         }
@@ -57,5 +57,29 @@ public class Wander : MonoBehaviour
     {
         float inputAngleRadians = inputAngleDegrees * Mathf.Deg2Rad;
         return new Vector3(Mathf.Cos(inputAngleRadians), Mathf.Sin(inputAngleRadians), 0);
+    }
+
+    public IEnumerator Move(Rigidbody2D rigidbodyToMove, float speed)
+    {
+        float remainingDistance = (transform.position - endPosition).sqrMagnitude;
+
+        while (remainingDistance > float.Epsilon)
+        {
+            if (targetTransform != null)
+            {
+                endPosition = targetTransform.position;
+            }
+
+            if (rigidbodyToMove != null)
+            {
+                animator.SetBool("isWalking", true);
+                Vector3 newPosition = Vector3.MoveTowards(rigidbodyToMove.position, endPosition, speed * Time.deltaTime);
+                rigidbody2D.MovePosition(newPosition);
+                remainingDistance = (transform.position - endPosition).sqrMagnitude;
+            }
+            yield return new WaitForFixedUpdate();
+        }
+
+        animator.SetBool("isWalking", false);
     }
 }

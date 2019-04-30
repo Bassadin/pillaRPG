@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7328010629560999850}
   - component: {fileID: 8520184236247507228}
   - component: {fileID: 8701292755013711992}
+  - component: {fileID: 7997525529066138672}
   m_Layer: 10
   m_Name: EnemyObject
   m_TagString: Enemy
@@ -181,3 +182,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &7997525529066138672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7328010629560999855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124a782d5ccebb24d8566d2b66315f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pursuitSpeed: 1.4
+  wanderSpeed: 0.8
+  directionChangeInterval: 3
+  followPlayer: 0
