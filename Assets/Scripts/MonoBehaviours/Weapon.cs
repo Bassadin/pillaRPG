@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -20,5 +21,39 @@ public class Weapon : MonoBehaviour
             ammoObject.SetActive(false);
             ammoPool.Add(ammoObject);
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            FireAmmo();
+        }
+    }
+
+    GameObject SpawnAmmo(Vector3 location)
+    {
+        foreach (GameObject ammo in ammoPool)
+        {
+            if (ammo.activeSelf == false)
+            {
+                ammo.SetActive(true);
+                ammo.transform.position = location;
+                return ammo;
+            }
+
+        }
+
+        return null;
+    }
+
+    private void FireAmmo()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnDestroy()
+    {
+        ammoPool = null;
     }
 }
