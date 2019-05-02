@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3501408278644647802}
   - component: {fileID: 1122091891}
   - component: {fileID: 505531411}
+  - component: {fileID: 6160041177172588224}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -175,10 +176,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351c8470e9db33744a1b32ee3ea3b337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: {fileID: 11400000, guid: 7a907075083f39244a66fb9a7547b621, type: 2}
   maxHitPoints: 10
   startingHitPoints: 8
   healthBarPrefab: {fileID: 724430738631284875, guid: 182830ac0d2f1734a98fffd1d15ac7da,
     type: 3}
   inventoryPrefab: {fileID: 7371218111671282294, guid: e4932d7e92afb5a40b6d10125446f46a,
     type: 3}
+  hitPoints: {fileID: 11400000, guid: 7a907075083f39244a66fb9a7547b621, type: 2}
+--- !u!114 &6160041177172588224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3501408278644647793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88da4b0828bfcc946b58d14314d01784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
