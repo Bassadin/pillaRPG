@@ -9,7 +9,7 @@ public class SpawnPoint : MonoBehaviour
     {
         if (repeatInterval > 0)
         {
-            InvokeRepeating("spawnObject", 0.0f, repeatInterval);
+            InvokeRepeating("SpawnObject", 0.0f, repeatInterval);
         }
     }
 

@@ -20,6 +20,7 @@ public class Wander : MonoBehaviour
     Animator animator;
     Transform targetTransform = null;
     Vector3 endPosition;
+    CircleCollider2D circleCollider;
     float currentAngle = 0;
 
     private void Start()
@@ -27,7 +28,19 @@ public class Wander : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         currentSpeed = wanderSpeed;
+        circleCollider = GetComponent<CircleCollider2D>();
         StartCoroutine(WanderRoutine());
+    }
+
+    private void OnDrawGizmos() {
+        if (circleCollider != null) {
+            Gizmos.DrawWireSphere(transform.position, circleCollider.radius);
+        }
+    }
+
+    private void Update()
+    {
+        Debug.DrawLine(rigidbody2D.position, endPosition, Color.red);
     }
 
     public IEnumerator WanderRoutine()
