@@ -15,17 +15,18 @@ public class Wander : MonoBehaviour
 
     //Internal vars
     float currentSpeed;
-    Coroutine MoveCoroutine;
+    Coroutine moveCoroutine;
     Rigidbody2D rigidbody2D;
     Animator animator;
     Transform targetTransform = null;
     Vector3 endPosition;
-    float currentAngle;
+    float currentAngle = 0;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        currentSpeed = wanderSpeed;
         StartCoroutine(WanderRoutine());
     }
 
@@ -35,12 +36,12 @@ public class Wander : MonoBehaviour
         {
             ChooseNewEndpoint();
 
-            if (MoveCoroutine != null)
+            if (moveCoroutine != null)
             {
-                StopCoroutine(MoveCoroutine);
+                StopCoroutine(moveCoroutine);
             }
 
-            MoveCoroutine = StartCoroutine(Move(rigidbody2D, currentSpeed));
+            moveCoroutine = StartCoroutine(Move(rigidbody2D, currentSpeed));
 
             yield return new WaitForSeconds(directionChangeInterval);
         }
@@ -81,5 +82,37 @@ public class Wander : MonoBehaviour
         }
 
         animator.SetBool("isWalking", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && followPlayer)
+        {
+            currentSpeed = pursuitSpeed;
+            targetTransform = collision.gameObject.transform;
+
+            if (moveCoroutine != null)
+            {
+                StopCoroutine(moveCoroutine);
+            }
+
+            moveCoroutine = StartCoroutine(Move(rigidbody2D, currentSpeed));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("isWalking", false);
+            currentSpeed = wanderSpeed;
+
+            if (moveCoroutine != null)
+            {
+                StopCoroutine(moveCoroutine);
+            }
+
+            targetTransform = null;
+        }
     }
 }

@@ -197,4 +197,4 @@ MonoBehaviour:
   pursuitSpeed: 1.4
   wanderSpeed: 0.8
   directionChangeInterval: 3
-  followPlayer: 0
+  followPlayer: 1
