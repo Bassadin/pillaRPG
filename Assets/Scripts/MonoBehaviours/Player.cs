@@ -9,11 +9,6 @@ public class Player : Character
     HealthBar healthBar;
     Inventory inventory;
 
-    public void Start()
-    {
-        
-    }
-
     private void OnEnable()
     {
         ResetCharacter();
