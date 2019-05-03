@@ -37,6 +37,7 @@ public class MovementController : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
         else {
+            animator.SetBool("isWalking", true);
             animator.SetFloat("xDir", movementVector.x);
             animator.SetFloat("yDir", movementVector.y);
         }
