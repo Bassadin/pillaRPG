@@ -22,4 +22,12 @@ public class RPGCameraManager : MonoBehaviour
         GameObject virtualCameraGameObject = GameObject.FindWithTag("VirtualCamera");
         virtualCamera = virtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
     }
+
+    private void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
 }
