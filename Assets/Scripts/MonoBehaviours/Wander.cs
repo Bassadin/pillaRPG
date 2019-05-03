@@ -63,7 +63,7 @@ public class Wander : MonoBehaviour
     void ChooseNewEndpoint()
     {
         currentAngle += Random.Range(0, 360);
-        currentAngle = Mathf.Repeat(currentSpeed, 360);
+        currentAngle = Mathf.Repeat(currentAngle, 360);
         endPosition += Vector3FromAngle(currentAngle);
     }
 
